@@ -1,0 +1,1544 @@
+<!DOCTYPE html>
+<html lang="bn" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>কবিতা ভুবন — বাংলা কবিতা ও সাহিত্যের আপন ঠিকানা</title>
+  <meta name="description" content="বাংলা কবিতা ও সাহিত্যের এক আধুনিক ডিজিটাল নিকেতন। প্রকাশ করুন আপনার মনের আবেগ ও সৃষ্টি।">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Google Fonts: Hind Siliguri & Noto Serif Bengali -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Noto+Serif+Bengali:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#ecfdf5',
+              100: '#d1fae5',
+              500: '#10b981',
+              600: '#059669',
+              700: '#047857',
+              800: '#065f46',
+            },
+            sepia: {
+              bg: '#fbf0d9',
+              card: '#f4e4c1',
+              text: '#433422',
+              border: '#e4d1ab'
+            }
+          },
+          fontFamily: {
+            sans: ['"Hind Siliguri"', 'sans-serif'],
+            serif: ['"Noto Serif Bengali"', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Hind Siliguri', sans-serif;
+      transition: background-color 0.25s ease, color 0.25s ease;
+    }
+    
+    .font-serif-bn {
+      font-family: 'Noto Serif Bengali', serif;
+    }
+
+    /* Sepia Mode Custom Overrides */
+    body.theme-sepia {
+      background-color: #fbf0d9;
+      color: #433422;
+    }
+    body.theme-sepia .bg-white {
+      background-color: #f5e7c8 !important;
+      color: #433422 !important;
+    }
+    body.theme-sepia .bg-gray-50, body.theme-sepia .bg-slate-50 {
+      background-color: #ebdcb9 !important;
+    }
+    body.theme-sepia .border-gray-100, body.theme-sepia .border-gray-200, body.theme-sepia .border-slate-200 {
+      border-color: #dabf96 !important;
+    }
+    body.theme-sepia .text-slate-600, body.theme-sepia .text-gray-600, body.theme-sepia .text-slate-500 {
+      color: #634d32 !important;
+    }
+
+    /* Toast Notification Animation */
+    @keyframes slideUp {
+      from { transform: translateY(100%) scale(0.9); opacity: 0; }
+      to { transform: translateY(0) scale(1); opacity: 1; }
+    }
+    .toast-anim {
+      animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    
+    /* Hide scrollbars for slick UX */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col selection:bg-brand-500 selection:text-white">
+
+  <!-- TOP NAVIGATION HEADER -->
+  <header class="sticky top-0 z-40 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800 transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 gap-4">
+        
+        <!-- Brand Logo -->
+        <a href="#home" class="flex items-center gap-2.5 group shrink-0">
+          <div class="w-10 h-10 rounded-xl bg-brand-600 text-white flex items-center justify-center shadow-md shadow-brand-600/20 group-hover:scale-105 transition-transform">
+            <i data-lucide="book-open" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <span class="text-xl font-bold tracking-tight text-slate-900 dark:text-white font-serif-bn block leading-tight">কবিতা ভুবন</span>
+            <span class="text-[10px] text-brand-600 dark:text-brand-400 font-medium tracking-wider block">সাহিত্য নিকেতন</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Menu -->
+        <nav class="hidden lg:flex items-center gap-1 xl:gap-2 text-sm font-medium">
+          <a href="#home" class="nav-link px-3 py-2 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">হোম</a>
+          <a href="#poems" class="nav-link px-3 py-2 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">কবিতা</a>
+          <a href="#poets" class="nav-link px-3 py-2 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">কবি</a>
+          <a href="#categories" class="nav-link px-3 py-2 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">বিভাগ</a>
+          <a href="#search" class="nav-link px-3 py-2 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">অনুসন্ধান</a>
+          <a href="#bookmarks" class="nav-link px-3 py-2 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">সংগ্রহ</a>
+          <a href="#card-generator" class="nav-link px-3 py-2 rounded-lg text-brand-600 dark:text-brand-400 font-semibold hover:bg-brand-50 dark:hover:bg-slate-800 transition-colors flex items-center gap-1.5">
+            <i data-lucide="image" class="w-4 h-4"></i>
+            কার্ড মেকার
+          </a>
+        </nav>
+
+        <!-- Right Header Actions -->
+        <div class="flex items-center gap-2 sm:gap-3">
+          
+          <!-- Submit Poem Quick Button -->
+          <a href="#submit" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-brand-600 hover:bg-brand-700 active:bg-brand-800 text-white font-medium text-sm transition-all shadow-sm shadow-brand-600/20">
+            <i data-lucide="pen-tool" class="w-4 h-4"></i>
+            <span>লিখুন</span>
+          </a>
+
+          <!-- Notification Drawer Toggle -->
+          <button id="notif-btn" onclick="toggleNotifications()" class="relative p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" aria-label="বিজ্ঞপ্তি">
+            <i data-lucide="bell" class="w-5 h-5"></i>
+            <span id="notif-badge" class="absolute top-1.5 right-1.5 w-2.5 h-2.5 bg-rose-500 rounded-full ring-2 ring-white dark:ring-slate-900"></span>
+          </button>
+
+          <!-- Theme Mode Switcher Dropdown -->
+          <div class="relative">
+            <button onclick="toggleThemeMenu()" class="p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" aria-label="থিম পরিবর্তন">
+              <i data-lucide="palette" class="w-5 h-5"></i>
+            </button>
+            <div id="theme-dropdown" class="hidden absolute right-0 mt-2 w-36 bg-white dark:bg-slate-800 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-700 py-1.5 z-50 text-xs font-medium">
+              <button onclick="setTheme('light')" class="w-full text-left px-3.5 py-2 flex items-center gap-2 text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">
+                <i data-lucide="sun" class="w-4 h-4 text-amber-500"></i> লাইট থিম
+              </button>
+              <button onclick="setTheme('dark')" class="w-full text-left px-3.5 py-2 flex items-center gap-2 text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">
+                <i data-lucide="moon" class="w-4 h-4 text-indigo-400"></i> ডার্ক থিম
+              </button>
+              <button onclick="setTheme('sepia')" class="w-full text-left px-3.5 py-2 flex items-center gap-2 text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">
+                <i data-lucide="book" class="w-4 h-4 text-amber-700"></i> সেপিয়া রিডিং
+              </button>
+            </div>
+          </div>
+
+          <!-- User Auth Profile Dropdown / Login Link -->
+          <div id="user-header-area">
+            <!-- Dynamically populated via JavaScript -->
+          </div>
+
+          <!-- Mobile Menu Trigger -->
+          <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800" aria-label="মেনু">
+            <i data-lucide="menu" class="w-6 h-6"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Overlay Drawer -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 pt-3 pb-6 space-y-2">
+      <a href="#home" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-xl font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">হোম</a>
+      <a href="#poems" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-xl font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">কবিতা</a>
+      <a href="#poets" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-xl font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">কবি</a>
+      <a href="#categories" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-xl font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">বিভাগ</a>
+      <a href="#search" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-xl font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">অনুসন্ধান</a>
+      <a href="#bookmarks" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-xl font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">সংগ্রহ</a>
+      <a href="#card-generator" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-xl font-medium text-brand-600 dark:text-brand-400 font-semibold hover:bg-brand-50 dark:hover:bg-slate-800">কবিতা কার্ড মেকার</a>
+      <a href="#submit" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-xl font-medium bg-brand-600 text-white text-center shadow-sm">কবিতা প্রকাশ করুন</a>
+    </div>
+  </header>
+
+  <!-- NOTIFICATION POPUP DRAWER -->
+  <div id="notif-drawer" class="hidden fixed top-16 right-4 sm:right-8 w-80 sm:w-96 bg-white dark:bg-slate-800 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 z-50 overflow-hidden">
+    <div class="px-4 py-3 bg-slate-50 dark:bg-slate-900 border-b border-slate-200 dark:border-slate-700 flex items-center justify-between">
+      <h3 class="font-bold text-slate-900 dark:text-white text-sm flex items-center gap-2">
+        <i data-lucide="bell" class="w-4 h-4 text-brand-600"></i> বিজ্ঞপ্তি
+      </h3>
+      <button onclick="clearNotifications()" class="text-xs text-brand-600 hover:underline">সব পঠিত করুন</button>
+    </div>
+    <div id="notif-list" class="max-h-80 overflow-y-auto divide-y divide-slate-100 dark:divide-slate-700 text-xs">
+      <!-- Notifications rendered dynamically -->
+    </div>
+  </div>
+
+  <!-- MAIN SPA CONTENT WRAPPER -->
+  <main id="app-container" class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 pb-24 lg:pb-12">
+    <!-- Dynamic SPA Views injected here via JS -->
+  </main>
+
+  <!-- MOBILE BOTTOM NAVIGATION BAR -->
+  <div class="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 dark:bg-slate-900/95 backdrop-blur-lg border-t border-slate-200 dark:border-slate-800 px-2 py-1.5 shadow-lg">
+    <div class="grid grid-cols-5 gap-1 text-center">
+      <a href="#home" class="mobile-nav-btn flex flex-col items-center py-1 text-slate-600 dark:text-slate-400 hover:text-brand-600 dark:hover:text-brand-400">
+        <i data-lucide="home" class="w-5 h-5"></i>
+        <span class="text-[10px] font-medium mt-0.5">হোম</span>
+      </a>
+      <a href="#poems" class="mobile-nav-btn flex flex-col items-center py-1 text-slate-600 dark:text-slate-400 hover:text-brand-600 dark:hover:text-brand-400">
+        <i data-lucide="book-open" class="w-5 h-5"></i>
+        <span class="text-[10px] font-medium mt-0.5">কবিতা</span>
+      </a>
+      <a href="#submit" class="mobile-nav-btn flex flex-col items-center py-1 text-slate-600 dark:text-slate-400 hover:text-brand-600 dark:hover:text-brand-400">
+        <div class="w-9 h-9 rounded-full bg-brand-600 text-white flex items-center justify-center -mt-3 shadow-md shadow-brand-600/30">
+          <i data-lucide="plus" class="w-5 h-5"></i>
+        </div>
+        <span class="text-[10px] font-medium mt-0.5">লিখুন</span>
+      </a>
+      <a href="#bookmarks" class="mobile-nav-btn flex flex-col items-center py-1 text-slate-600 dark:text-slate-400 hover:text-brand-600 dark:hover:text-brand-400">
+        <i data-lucide="bookmark" class="w-5 h-5"></i>
+        <span class="text-[10px] font-medium mt-0.5">সংগ্রহ</span>
+      </a>
+      <a href="#profile" class="mobile-nav-btn flex flex-col items-center py-1 text-slate-600 dark:text-slate-400 hover:text-brand-600 dark:hover:text-brand-400">
+        <i data-lucide="user" class="w-5 h-5"></i>
+        <span class="text-[10px] font-medium mt-0.5">প্রোফাইল</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- FOOTER SECTION -->
+  <footer class="bg-slate-900 text-slate-400 text-sm border-t border-slate-800 transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        
+        <!-- Brand Info -->
+        <div class="space-y-3 md:col-span-1">
+          <div class="flex items-center gap-2 text-white">
+            <div class="w-8 h-8 rounded-lg bg-brand-600 flex items-center justify-center">
+              <i data-lucide="book-open" class="w-4 h-4 text-white"></i>
+            </div>
+            <span class="text-lg font-bold font-serif-bn">কবিতা ভুবন</span>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            “বাংলা কবিতা ও সাহিত্যের আপন ঠিকানা”<br>
+            প্রতিষ্ঠিত: ২০২৬
+          </p>
+          <div class="pt-2 text-xs">
+            <p><span class="text-slate-300 font-medium">প্রতিষ্ঠাতা ও ডেভেলপার:</span> MOJNU MIAH</p>
+            <p class="mt-0.5"><i data-lucide="mail" class="w-3 h-3 inline mr-1"></i> mojnumiah782@gmail.com</p>
+            <p class="mt-0.5"><i data-lucide="phone" class="w-3 h-3 inline mr-1"></i> 01307830655</p>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="text-white font-semibold mb-3 text-xs uppercase tracking-wider font-serif-bn">নেভিগেশন</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#home" class="hover:text-white transition-colors">হোম পেজ</a></li>
+            <li><a href="#poems" class="hover:text-white transition-colors">সকল কবিতা</a></li>
+            <li><a href="#poets" class="hover:text-white transition-colors">কবিদের তালিকা</a></li>
+            <li><a href="#categories" class="hover:text-white transition-colors">কাব্য বিভাগ</a></li>
+            <li><a href="#card-generator" class="hover:text-white transition-colors">কার্ড মেকার</a></li>
+          </ul>
+        </div>
+
+        <!-- Rules & Guidelines -->
+        <div>
+          <h4 class="text-white font-semibold mb-3 text-xs uppercase tracking-wider font-serif-bn">তথ্য ও নীতিমালা</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#about" class="hover:text-white transition-colors">আমাদের সম্পর্কে</a></li>
+            <li><a href="#contact" class="hover:text-white transition-colors">যোগাযোগ</a></li>
+            <li><a href="#settings" class="hover:text-white transition-colors">গোপনীয়তা নীতি</a></li>
+            <li><a href="#admin" class="hover:text-white transition-colors text-brand-400">এডমিন প্যানেল</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter Subscription Mock -->
+        <div>
+          <h4 class="text-white font-semibold mb-3 text-xs uppercase tracking-wider font-serif-bn">যুক্ত থাকুন</h4>
+          <p class="text-xs text-slate-400 mb-3">নতুন কবিতা ও সাহিত্য সংবাদের আপডেট পেতে ইমেইল সাবস্ক্রাইব করুন।</p>
+          <form onsubmit="handleSubscribe(event)" class="space-y-2">
+            <input type="email" placeholder="আপনার ইমেইল..." required class="w-full px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-brand-500">
+            <button type="submit" class="w-full py-2 bg-brand-600 hover:bg-brand-700 text-white rounded-xl text-xs font-medium transition-colors">সাবস্ক্রাইব</button>
+          </form>
+        </div>
+
+      </div>
+
+      <div class="pt-8 border-t border-slate-800 text-center text-xs text-slate-500 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p>© ২০২৬ কবিতা ভুবন। সর্বস্বত্ব সংরক্ষিত।</p>
+        <p>ডিজাইন ও নির্মাণ: <span class="text-slate-300 font-medium">MOJNU MIAH</span></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div id="toast-container" class="fixed bottom-20 sm:bottom-6 right-4 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+  <!-- SHARE MODAL -->
+  <div id="share-modal" class="hidden fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+    <div class="bg-white dark:bg-slate-800 rounded-3xl p-6 max-w-sm w-full shadow-2xl border border-slate-100 dark:border-slate-700">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="font-bold text-slate-900 dark:text-white text-base font-serif-bn">শেয়ার করুন</h3>
+        <button onclick="closeShareModal()" class="text-slate-400 hover:text-slate-600"><i data-lucide="x" class="w-5 h-5"></i></button>
+      </div>
+      <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">আপনার সোশ্যাল মিডিয়া হ্যান্ডেলে লিঙ্কটি শেয়ার করুন:</p>
+      <div class="grid grid-cols-3 gap-3 mb-4 text-center text-xs">
+        <button onclick="shareSocial('facebook')" class="p-3 bg-blue-50 dark:bg-blue-900/30 text-blue-600 rounded-2xl hover:bg-blue-100 transition-colors flex flex-col items-center gap-1.5">
+          <i data-lucide="facebook" class="w-5 h-5"></i> ফেসবুক
+        </button>
+        <button onclick="shareSocial('whatsapp')" class="p-3 bg-emerald-50 dark:bg-emerald-900/30 text-emerald-600 rounded-2xl hover:bg-emerald-100 transition-colors flex flex-col items-center gap-1.5">
+          <i data-lucide="message-circle" class="w-5 h-5"></i> হোয়াটসঅ্যাপ
+        </button>
+        <button onclick="copyShareLink()" class="p-3 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-2xl hover:bg-slate-200 transition-colors flex flex-col items-center gap-1.5">
+          <i data-lucide="copy" class="w-5 h-5"></i> লিঙ্ক কপি
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT LOGIC ENGINE -->
+  <script>
+    /* ==========================================================================
+       LOCALSTORAGE STATE ENGINE & INITIALIZATION
+       ========================================================================== */
+    
+    // Application Central State
+    const AppState = {
+      currentUser: JSON.parse(localStorage.getItem('kb_user')) || null,
+      theme: localStorage.getItem('kb_theme') || 'light',
+      bookmarks: JSON.parse(localStorage.getItem('kb_bookmarks')) || [],
+      likes: JSON.parse(localStorage.getItem('kb_likes')) || [],
+      following: JSON.parse(localStorage.getItem('kb_following')) || [],
+      drafts: JSON.parse(localStorage.getItem('kb_drafts')) || [],
+      publishedPoems: JSON.parse(localStorage.getItem('kb_custom_poems')) || [],
+      comments: JSON.parse(localStorage.getItem('kb_comments')) || {},
+      notifications: [
+        { id: 1, title: 'স্বাগতম!', body: 'কবিতা ভুবনে আপনাকে স্বাগতম।', read: false, date: 'আজ' },
+        { id: 2, title: 'নতুন ফিচার', body: 'কার্ড মেকার দিয়ে সহজেই কবিতা কার্ড বানান।', read: false, date: 'গতকাল' }
+      ]
+    };
+
+    // Placeholder Datasets (STRICTLY NEUTRAL CONTENT - NO SAMPLE POEMS)
+    const Categories = [
+      { id: 'প্রেম', name: 'প্রেম ও ভালোবাসা', icon: 'heart' },
+      { id: 'বিরহ', name: 'বিরহ ও অনুভূতি', icon: 'cloud-rain' },
+      { id: 'প্রকৃতি', name: 'প্রকৃতি ও জীবন', icon: 'trees' },
+      { id: 'বাস্তবতা', name: 'বাস্তবতা ও সমাজ', icon: 'compass' },
+      { id: 'দেশাত্মবোধক', name: 'দেশাত্মবোধক', icon: 'flag' },
+      { id: 'ছড়া', name: 'ছড়া ও কিশোর কবিতা', icon: 'smile' },
+      { id: 'গল্প', name: 'অনুগল্প ও সাহিত্য', icon: 'book-open' },
+      { id: 'প্রবন্ধ', name: 'সাহিত্য প্রবন্ধ', icon: 'file-text' }
+    ];
+
+    const PoetsSeed = [
+      { id: 'poet-1', name: 'কবির নাম (নমুনা)', bio: 'কবির পরিচিতি এবং জীবনী সংক্ষেপ এখানে প্রদর্শিত হবে।', works: 12, followers: 340, loc: 'ঢাকা, বাংলাদেশ' },
+      { id: 'poet-2', name: 'কবির নাম (নমুনা)', bio: 'কবির পরিচিতি এবং জীবনী সংক্ষেপ এখানে প্রদর্শিত হবে।', works: 8, followers: 190, loc: 'চট্টগ্রাম, বাংলাদেশ' },
+      { id: 'poet-3', name: 'কবির নাম (নমুনা)', bio: 'কবির পরিচিতি এবং জীবনী সংক্ষেপ এখানে প্রদর্শিত হবে।', works: 24, followers: 850, loc: 'সিলেট, বাংলাদেশ' },
+      { id: 'poet-4', name: 'কবির নাম (নমুনা)', bio: 'কবির পরিচিতি এবং জীবনী সংক্ষেপ এখানে প্রদর্শিত হবে।', works: 5, followers: 95, loc: 'রাজশাহী, বাংলাদেশ' }
+    ];
+
+    const BasePoems = [
+      { id: 'p-1', title: 'কবিতার শিরোনাম (নমুনা ১)', poet: 'কবির নাম (নমুনা)', category: 'প্রেম', date: '২০২৬-০৩-১৫', views: 420, likesCount: 45, text: 'এখানে কবিতার লেখা প্রদর্শিত হবে।\nপ্রথম চরণ এখানে থাকবে।\nদ্বিতীয় চরণ এখানে থাকবে।\n\nতৃতীয় চরণ এখানে থাকবে।\nচতুর্থ চরণ এখানে প্রদর্শিত হবে।' },
+      { id: 'p-2', title: 'কবিতার শিরোনাম (নমুনা ২)', poet: 'কবির নাম (নমুনা)', category: 'প্রকৃতি', date: '২০২৬-০৩-১৪', views: 310, likesCount: 28, text: 'এখানে কবিতার লেখা প্রদর্শিত হবে।\nকাব্যিক পংক্তি এখানে প্রদর্শিত হবে।\nকবিতার প্রতিটি অনুচ্ছেদ সুন্দরভাবে সাজানো থাকবে।\n\nপংক্তি এখানে শেষ হবে।' },
+      { id: 'p-3', title: 'কবিতার শিরোনাম (নমুনা ৩)', poet: 'কবির নাম (নমুনা)', category: 'বিরহ', date: '২০২৬-০৩-১০', views: 580, likesCount: 62, text: 'এখানে কবিতার লেখা প্রদর্শিত হবে।\nঅনুভূতির কথা এখানে লেখা থাকবে।\nনমুনা টেক্সট ধারণ করার স্থান।' },
+      { id: 'p-4', title: 'কবিতার শিরোনাম (নমুনা ৪)', poet: 'কবির নাম (নমুনা)', category: 'বাস্তবতা', date: '২০২৬-০৩-০৮', views: 210, likesCount: 19, text: 'এখানে কবিতার লেখা প্রদর্শিত হবে।\nজীবনের বাস্তব চিত্র পংক্তিমাল্যার মাধ্যমে ফুটে উঠবে।\nএখানে বিষয়বস্তু প্রদর্শিত হবে।' }
+    ];
+
+    // Helper: Get All Poems (Seed + User Submitted)
+    function getAllPoems() {
+      return [...AppState.publishedPoems, ...BasePoems];
+    }
+
+    /* ==========================================================================
+       ROUTER & SPA CONTROLLER
+       ========================================================================== */
+    window.addEventListener('hashchange', handleRoute);
+    window.addEventListener('DOMContentLoaded', () => {
+      initTheme();
+      updateUserHeader();
+      handleRoute();
+    });
+
+    function handleRoute() {
+      const hash = window.location.hash || '#home';
+      const container = document.getElementById('app-container');
+      
+      // Close dropdowns
+      document.getElementById('theme-dropdown').classList.add('hidden');
+      document.getElementById('notif-drawer').classList.add('hidden');
+
+      // Routing Table
+      if (hash === '#home') renderHome(container);
+      else if (hash === '#poems') renderPoemsCatalog(container);
+      else if (hash.startsWith('#poem?id=')) {
+        const id = hash.split('id=')[1];
+        renderPoemDetail(container, id);
+      }
+      else if (hash === '#poets') renderPoetsList(container);
+      else if (hash.startsWith('#poet?id=')) {
+        const id = hash.split('id=')[1];
+        renderPoetProfile(container, id);
+      }
+      else if (hash === '#categories') renderCategoriesView(container);
+      else if (hash === '#search') renderSearchView(container);
+      else if (hash === '#bookmarks') renderBookmarksView(container);
+      else if (hash === '#login') renderLoginView(container);
+      else if (hash === '#register') renderRegisterView(container);
+      else if (hash === '#profile' || hash === '#dashboard') renderDashboardView(container);
+      else if (hash === '#submit') renderPoemSubmissionView(container);
+      else if (hash === '#card-generator') renderCardGeneratorView(container);
+      else if (hash === '#admin') renderAdminView(container);
+      else if (hash === '#settings') renderSettingsView(container);
+      else if (hash === '#about') renderAboutView(container);
+      else if (hash === '#contact') renderContactView(container);
+      else renderHome(container);
+
+      // Re-initialize Lucide Icons on view switch
+      setTimeout(() => lucide.createIcons(), 50);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    /* ==========================================================================
+       THEME & NOTIFICATION ENGINE
+       ========================================================================== */
+    function initTheme() {
+      setTheme(AppState.theme);
+    }
+
+    function setTheme(mode) {
+      AppState.theme = mode;
+      localStorage.setItem('kb_theme', mode);
+      document.documentElement.classList.remove('dark');
+      document.body.classList.remove('theme-sepia');
+
+      if (mode === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else if (mode === 'sepia') {
+        document.body.classList.add('theme-sepia');
+      }
+      showToast(`থিম পরিবর্তন করা হয়েছে: ${mode === 'dark' ? 'ডার্ক' : mode === 'sepia' ? 'সেপিয়া' : 'লাইট'}`);
+    }
+
+    function toggleThemeMenu() {
+      document.getElementById('theme-dropdown').classList.toggle('hidden');
+    }
+
+    function toggleNotifications() {
+      const drawer = document.getElementById('notif-drawer');
+      drawer.classList.toggle('hidden');
+      renderNotifications();
+    }
+
+    function renderNotifications() {
+      const list = document.getElementById('notif-list');
+      const badge = document.getElementById('notif-badge');
+      
+      const unreadCount = AppState.notifications.filter(n => !n.read).length;
+      badge.style.display = unreadCount > 0 ? 'block' : 'none';
+
+      list.innerHTML = AppState.notifications.map(n => `
+        <div class="p-3 ${n.read ? 'bg-white dark:bg-slate-800' : 'bg-brand-50/50 dark:bg-slate-700/40'}">
+          <div class="font-semibold text-slate-800 dark:text-slate-200">${n.title}</div>
+          <p class="text-slate-500 dark:text-slate-400 mt-0.5">${n.body}</p>
+          <span class="text-[10px] text-slate-400 mt-1 block">${n.date}</span>
+        </div>
+      `).join('');
+    }
+
+    function clearNotifications() {
+      AppState.notifications.forEach(n => n.read = true);
+      renderNotifications();
+      showToast('সকল বিজ্ঞপ্তি পঠিত হিসাবে চিহ্নিত করা হয়েছে।');
+    }
+
+    function toggleMobileMenu() {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    }
+
+    /* ==========================================================================
+       AUTHENTICATION SYSTEM
+       ========================================================================== */
+    function updateUserHeader() {
+      const area = document.getElementById('user-header-area');
+      if (AppState.currentUser) {
+        area.innerHTML = `
+          <a href="#dashboard" class="flex items-center gap-2 p-1 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+            <div class="w-8 h-8 rounded-full bg-brand-600 text-white font-bold flex items-center justify-center text-xs">
+              ${AppState.currentUser.name.charAt(0)}
+            </div>
+            <span class="hidden sm:inline text-xs font-semibold text-slate-700 dark:text-slate-200">${AppState.currentUser.name}</span>
+          </a>
+        `;
+      } else {
+        area.innerHTML = `
+          <a href="#login" class="px-3.5 py-2 rounded-xl text-xs font-semibold text-brand-600 dark:text-brand-400 hover:bg-brand-50 dark:hover:bg-slate-800 transition-colors">
+            লগইন
+          </a>
+        `;
+      }
+    }
+
+    function handleLogin(e) {
+      e.preventDefault();
+      const email = e.target.email.value;
+      const user = { name: email.split('@')[0] || 'কবি ইউজার', email: email, joined: '২০২৬' };
+      AppState.currentUser = user;
+      localStorage.setItem('kb_user', JSON.stringify(user));
+      updateUserHeader();
+      showToast('সফলভাবে লগইন করা হয়েছে!');
+      window.location.hash = '#dashboard';
+    }
+
+    function handleRegister(e) {
+      e.preventDefault();
+      const name = e.target.fullname.value;
+      const email = e.target.email.value;
+      const user = { name, email, joined: '২০২৬' };
+      AppState.currentUser = user;
+      localStorage.setItem('kb_user', JSON.stringify(user));
+      updateUserHeader();
+      showToast('অ্যাকাউন্ট সফলভাবে তৈরি হয়েছে!');
+      window.location.hash = '#dashboard';
+    }
+
+    function logout() {
+      AppState.currentUser = null;
+      localStorage.removeItem('kb_user');
+      updateUserHeader();
+      showToast('লগআউট সম্পন্ন হয়েছে।');
+      window.location.hash = '#home';
+    }
+
+    /* ==========================================================================
+       INTERACTIVE HELPER FUNCTIONS (Bookmarks, Likes, Follows, Toast)
+       ========================================================================== */
+    function showToast(msg) {
+      const container = document.getElementById('toast-container');
+      const toast = document.createElement('div');
+      toast.className = 'toast-anim px-4 py-3 bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900 text-xs font-medium rounded-2xl shadow-xl flex items-center gap-2 border border-slate-700/50 pointer-events-auto';
+      toast.innerHTML = `<i data-lucide="check-circle" class="w-4 h-4 text-brand-500"></i> ${msg}`;
+      container.appendChild(toast);
+      lucide.createIcons();
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateY(20px)';
+        setTimeout(() => toast.remove(), 300);
+      }, 2500);
+    }
+
+    function toggleBookmark(poemId) {
+      const idx = AppState.bookmarks.indexOf(poemId);
+      if (idx > -1) {
+        AppState.bookmarks.splice(idx, 1);
+        showToast('সংগ্রহ থেকে সরানো হয়েছে।');
+      } else {
+        AppState.bookmarks.push(poemId);
+        showToast('সংগ্রহে যোগ করা হয়েছে!');
+      }
+      localStorage.setItem('kb_bookmarks', JSON.stringify(AppState.bookmarks));
+      handleRoute();
+    }
+
+    function toggleLike(poemId) {
+      const idx = AppState.likes.indexOf(poemId);
+      if (idx > -1) {
+        AppState.likes.splice(idx, 1);
+      } else {
+        AppState.likes.push(poemId);
+        showToast('লাইক যোগ করা হয়েছে!');
+      }
+      localStorage.setItem('kb_likes', JSON.stringify(AppState.likes));
+      handleRoute();
+    }
+
+    function toggleFollow(poetId) {
+      const idx = AppState.following.indexOf(poetId);
+      if (idx > -1) {
+        AppState.following.splice(idx, 1);
+        showToast('আনফলো করা হয়েছে।');
+      } else {
+        AppState.following.push(poetId);
+        showToast('অনুসরণ করা হচ্ছে!');
+      }
+      localStorage.setItem('kb_following', JSON.stringify(AppState.following));
+      handleRoute();
+    }
+
+    function openShareModal(id) {
+      document.getElementById('share-modal').classList.remove('hidden');
+    }
+    function closeShareModal() {
+      document.getElementById('share-modal').classList.add('hidden');
+    }
+    function shareSocial(type) {
+      showToast(`${type} মাধ্যমে শেয়ার লিঙ্ক জেনারেট হয়েছে!`);
+      closeShareModal();
+    }
+    function copyShareLink() {
+      navigator.clipboard.writeText(window.location.href);
+      showToast('লিঙ্ক ক্লিপবোর্ডে কপি করা হয়েছে!');
+      closeShareModal();
+    }
+    function handleSubscribe(e) {
+      e.preventDefault();
+      showToast('ধন্যবাদ! নিউজলেটারে সাবস্ক্রাইব করা হয়েছে।');
+      e.target.reset();
+    }
+
+    /* ==========================================================================
+       VIEW RENDERERS
+       ========================================================================== */
+
+    /* 1. HOME VIEW */
+    function renderHome(container) {
+      const allPoems = getAllPoems();
+      container.innerHTML = `
+        <!-- HERO AREA -->
+        <section class="py-12 md:py-20 text-center relative overflow-hidden rounded-3xl bg-gradient-to-b from-brand-50/50 to-transparent dark:from-slate-800/40 dark:to-transparent border border-brand-100/50 dark:border-slate-800 mb-12">
+          <div class="max-w-3xl mx-auto px-4">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-100 dark:bg-brand-900/40 text-brand-700 dark:text-brand-300 text-xs font-semibold mb-4">
+              <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> বাংলা সাহিত্যের ডিজিটাল নিকেতন
+            </span>
+            <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white font-serif-bn tracking-tight leading-tight mb-4">
+              কবিতা ভুবন
+            </h1>
+            <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 mb-8 font-serif-bn">
+              “বাংলা কবিতা ও সাহিত্যের আপন ঠিকানা”
+            </p>
+            <div class="flex flex-wrap items-center justify-center gap-4">
+              <a href="#poems" class="px-6 py-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-medium text-sm transition-all shadow-lg shadow-brand-600/25 flex items-center gap-2">
+                <i data-lucide="book-open" class="w-4 h-4"></i> কবিতা দেখুন
+              </a>
+              <a href="#submit" class="px-6 py-3 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-medium text-sm transition-all flex items-center gap-2">
+                <i data-lucide="pen-tool" class="w-4 h-4 text-brand-600"></i> কবিতা প্রকাশ করুন
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- CATEGORIES QUICK GRID -->
+        <section class="mb-14">
+          <div class="flex items-center justify-between mb-6">
+            <h2 class="text-xl font-bold text-slate-900 dark:text-white font-serif-bn flex items-center gap-2">
+              <i data-lucide="grid" class="w-5 h-5 text-brand-600"></i> কাব্য বিভাগসমূহ
+            </h2>
+            <a href="#categories" class="text-xs font-semibold text-brand-600 hover:underline">সবগুলো দেখুন →</a>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
+            ${Categories.map(cat => `
+              <a href="#poems?cat=${cat.id}" class="p-4 rounded-2xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700/60 hover:border-brand-500 dark:hover:border-brand-500 hover:shadow-md transition-all flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-brand-50 dark:bg-slate-700 text-brand-600 dark:text-brand-400 flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <i data-lucide="${cat.icon}" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <h3 class="text-xs sm:text-sm font-semibold text-slate-800 dark:text-slate-200">${cat.name}</h3>
+                  <span class="text-[10px] text-slate-400">বিভাগ স্থান</span>
+                </div>
+              </a>
+            `).join('')}
+          </div>
+        </section>
+
+        <!-- FEATURED POEMS -->
+        <section class="mb-14">
+          <div class="flex items-center justify-between mb-6">
+            <h2 class="text-xl font-bold text-slate-900 dark:text-white font-serif-bn flex items-center gap-2">
+              <i data-lucide="award" class="w-5 h-5 text-brand-600"></i> নির্বাচিত কবিতা
+            </h2>
+            <a href="#poems" class="text-xs font-semibold text-brand-600 hover:underline">সকল কবিতা →</a>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            ${allPoems.slice(0, 4).map(p => renderPoemCard(p)).join('')}
+          </div>
+        </section>
+
+        <!-- FEATURED POETS -->
+        <section class="mb-12">
+          <div class="flex items-center justify-between mb-6">
+            <h2 class="text-xl font-bold text-slate-900 dark:text-white font-serif-bn flex items-center gap-2">
+              <i data-lucide="users" class="w-5 h-5 text-brand-600"></i> জনপ্রিয় কবিগণ
+            </h2>
+            <a href="#poets" class="text-xs font-semibold text-brand-600 hover:underline">সকল কবি →</a>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            ${PoetsSeed.map(poet => renderPoetCard(poet)).join('')}
+          </div>
+        </section>
+      `;
+    }
+
+    /* CARD RENDER HELPER FOR POEMS */
+    function renderPoemCard(p) {
+      const isBookmarked = AppState.bookmarks.includes(p.id);
+      const isLiked = AppState.likes.includes(p.id);
+      return `
+        <article class="bg-white dark:bg-slate-800 rounded-2xl p-5 border border-slate-100 dark:border-slate-700/60 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="px-2.5 py-0.5 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-[11px] font-medium">
+                ${p.category}
+              </span>
+              <span class="text-[11px] text-slate-400">${p.date}</span>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white font-serif-bn mb-1 hover:text-brand-600 transition-colors">
+              <a href="#poem?id=${p.id}">${p.title}</a>
+            </h3>
+            <p class="text-xs text-brand-600 dark:text-brand-400 font-medium mb-3">
+              ${p.poet}
+            </p>
+            <p class="text-xs text-slate-500 dark:text-slate-400 line-clamp-3 font-serif-bn leading-relaxed mb-4">
+              ${p.text.substring(0, 90)}...
+            </p>
+          </div>
+          <div class="pt-3 border-t border-slate-100 dark:border-slate-700/50 flex items-center justify-between text-xs text-slate-500">
+            <div class="flex items-center gap-3">
+              <button onclick="toggleLike('${p.id}')" class="flex items-center gap-1 hover:text-rose-500 transition-colors ${isLiked ? 'text-rose-500 font-bold' : ''}">
+                <i data-lucide="heart" class="w-4 h-4 ${isLiked ? 'fill-rose-500' : ''}"></i>
+                <span>${p.likesCount + (isLiked ? 1 : 0)}</span>
+              </button>
+              <span class="flex items-center gap-1">
+                <i data-lucide="eye" class="w-4 h-4"></i> ${p.views}
+              </span>
+            </div>
+            <div class="flex items-center gap-2">
+              <button onclick="toggleBookmark('${p.id}')" class="p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 ${isBookmarked ? 'text-brand-600' : ''}" aria-label="সংগ্রহ">
+                <i data-lucide="bookmark" class="w-4 h-4 ${isBookmarked ? 'fill-brand-600' : ''}"></i>
+              </button>
+              <button onclick="openShareModal('${p.id}')" class="p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700" aria-label="শেয়ার">
+                <i data-lucide="share-2" class="w-4 h-4"></i>
+              </button>
+            </div>
+          </div>
+        </article>
+      `;
+    }
+
+    /* CARD RENDER HELPER FOR POETS */
+    function renderPoetCard(poet) {
+      const isFollowing = AppState.following.includes(poet.id);
+      return `
+        <div class="bg-white dark:bg-slate-800 rounded-2xl p-5 border border-slate-100 dark:border-slate-700/60 shadow-sm text-center flex flex-col items-center">
+          <div class="w-16 h-16 rounded-full bg-brand-100 dark:bg-slate-700 text-brand-700 dark:text-brand-300 font-bold text-xl flex items-center justify-center mb-3">
+            ${poet.name.charAt(0)}
+          </div>
+          <h3 class="font-bold text-slate-900 dark:text-white text-sm font-serif-bn mb-0.5">
+            <a href="#poet?id=${poet.id}" class="hover:underline">${poet.name}</a>
+          </h3>
+          <p class="text-[11px] text-slate-400 mb-2">${poet.loc}</p>
+          <p class="text-xs text-slate-500 dark:text-slate-400 line-clamp-2 font-serif-bn mb-4 px-2">${poet.bio}</p>
+          <div class="mt-auto w-full pt-3 border-t border-slate-100 dark:border-slate-700 flex items-center justify-between text-xs">
+            <span class="text-slate-400">${poet.works} টি কবিতা</span>
+            <button onclick="toggleFollow('${poet.id}')" class="px-3 py-1 rounded-xl text-xs font-semibold ${isFollowing ? 'bg-slate-100 text-slate-700 dark:bg-slate-700 dark:text-slate-200' : 'bg-brand-600 text-white hover:bg-brand-700'} transition-colors">
+              ${isFollowing ? 'অনুসরণ করছেন' : 'ফলো'}
+            </button>
+          </div>
+        </div>
+      `;
+    }
+
+    /* 2. POEMS CATALOG VIEW */
+    function renderPoemsCatalog(container) {
+      const allPoems = getAllPoems();
+      container.innerHTML = `
+        <div class="mb-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div>
+            <h1 class="text-2xl font-bold text-slate-900 dark:text-white font-serif-bn">সকল কবিতা</h1>
+            <p class="text-xs text-slate-500">বাংলা সাহিত্যের সেরা কবিতাসমূহ একসাথে ব্রাউজ করুন</p>
+          </div>
+          
+          <!-- Category Filter & Sort -->
+          <div class="flex items-center gap-2 overflow-x-auto pb-2 md:pb-0 no-scrollbar">
+            <select onchange="filterPoemsCategory(this.value)" class="px-3 py-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs text-slate-700 dark:text-slate-200 font-medium">
+              <option value="ALL">সকল বিভাগ</option>
+              ${Categories.map(c => `<option value="${c.id}">${c.name}</option>`).join('')}
+            </select>
+            <select class="px-3 py-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs text-slate-700 dark:text-slate-200 font-medium">
+              <option>সর্বশেষ প্রকাশিত</option>
+              <option>সর্বাধিক জনপ্রিয়</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="poems-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          ${allPoems.map(p => renderPoemCard(p)).join('')}
+        </div>
+      `;
+    }
+
+    function filterPoemsCategory(catId) {
+      const allPoems = getAllPoems();
+      const filtered = catId === 'ALL' ? allPoems : allPoems.filter(p => p.category === catId);
+      const grid = document.getElementById('poems-grid');
+      grid.innerHTML = filtered.length > 0 
+        ? filtered.map(p => renderPoemCard(p)).join('')
+        : `<div class="col-span-full py-12 text-center text-slate-400 text-sm">এই বিভাগে এখনো কোনো কবিতা যুক্ত করা হয়নি।</div>`;
+      lucide.createIcons();
+    }
+
+    /* 3. POEM DETAIL & READING VIEW */
+    function renderPoemDetail(container, id) {
+      const allPoems = getAllPoems();
+      const poem = allPoems.find(p => p.id === id) || allPoems[0];
+      const isLiked = AppState.likes.includes(poem.id);
+      const isBookmarked = AppState.bookmarks.includes(poem.id);
+      const commentsList = AppState.comments[poem.id] || [];
+
+      container.innerHTML = `
+        <div class="max-w-3xl mx-auto">
+          <!-- Breadcrumb -->
+          <nav class="flex items-center gap-2 text-xs text-slate-400 mb-6">
+            <a href="#home" class="hover:underline">হোম</a> <span>/</span>
+            <a href="#poems" class="hover:underline">কবিতা</a> <span>/</span>
+            <span class="text-slate-600 dark:text-slate-300">${poem.title}</span>
+          </nav>
+
+          <!-- Reading Interface Card -->
+          <article class="bg-white dark:bg-slate-800 rounded-3xl p-6 sm:p-10 border border-slate-100 dark:border-slate-700/60 shadow-sm mb-8">
+            
+            <!-- Poem Metadata Header -->
+            <div class="text-center pb-8 border-b border-slate-100 dark:border-slate-700 mb-8">
+              <span class="inline-block px-3 py-1 rounded-full bg-brand-50 dark:bg-slate-700 text-brand-700 dark:text-brand-300 text-xs font-semibold mb-3">
+                ${poem.category}
+              </span>
+              <h1 class="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-white font-serif-bn mb-3 leading-snug">
+                ${poem.title}
+              </h1>
+              <p class="text-sm font-semibold text-brand-600 dark:text-brand-400 mb-2">
+                ${poem.poet}
+              </p>
+              <div class="flex items-center justify-center gap-4 text-xs text-slate-400">
+                <span><i data-lucide="calendar" class="w-3.5 h-3.5 inline mr-1"></i>${poem.date}</span>
+                <span><i data-lucide="eye" class="w-3.5 h-3.5 inline mr-1"></i>${poem.views} বার পঠিত</span>
+              </div>
+            </div>
+
+            <!-- Reading Controls Toolbar -->
+            <div class="flex items-center justify-between bg-slate-50 dark:bg-slate-700/40 rounded-2xl px-4 py-2 mb-8 text-xs">
+              <span class="text-slate-500 font-medium">পঠন নিয়ন্ত্রণ:</span>
+              <div class="flex items-center gap-2">
+                <button onclick="adjustFontSize(-2)" class="p-1.5 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-600 font-bold" title="ছোট হরফ">A-</button>
+                <button onclick="adjustFontSize(2)" class="p-1.5 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-600 font-bold" title="বড় হরফ">A+</button>
+              </div>
+            </div>
+
+            <!-- Poem Body Text (NEUTRAL PLACEHOLDERS ONLY) -->
+            <div id="poem-text-container" class="font-serif-bn text-base sm:text-lg text-slate-800 dark:text-slate-200 leading-relaxed space-y-4 whitespace-pre-line text-center my-10">
+              ${poem.text}
+            </div>
+
+            <!-- Action Controls Bar -->
+            <div class="pt-8 border-t border-slate-100 dark:border-slate-700 flex flex-wrap items-center justify-between gap-4">
+              <div class="flex items-center gap-3">
+                <button onclick="toggleLike('${poem.id}')" class="px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-700 flex items-center gap-2 text-xs font-semibold hover:bg-slate-50 dark:hover:bg-slate-700 ${isLiked ? 'text-rose-500 border-rose-300' : ''}">
+                  <i data-lucide="heart" class="w-4 h-4 ${isLiked ? 'fill-rose-500' : ''}"></i>
+                  <span>${poem.likesCount + (isLiked ? 1 : 0)} লাইক</span>
+                </button>
+                <button onclick="toggleBookmark('${poem.id}')" class="px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-700 flex items-center gap-2 text-xs font-semibold hover:bg-slate-50 dark:hover:bg-slate-700 ${isBookmarked ? 'text-brand-600 border-brand-300' : ''}">
+                  <i data-lucide="bookmark" class="w-4 h-4 ${isBookmarked ? 'fill-brand-600' : ''}"></i>
+                  <span>সংগ্রহ</span>
+                </button>
+              </div>
+              <div class="flex items-center gap-2">
+                <button onclick="openShareModal('${poem.id}')" class="px-4 py-2 rounded-xl bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900 text-xs font-semibold hover:opacity-90 flex items-center gap-1.5">
+                  <i data-lucide="share-2" class="w-3.5 h-3.5"></i> শেয়ার
+                </button>
+              </div>
+            </div>
+
+          </article>
+
+          <!-- AUDIO PLAYER SIMULATION UI -->
+          <div class="bg-white dark:bg-slate-800 rounded-2xl p-4 border border-slate-100 dark:border-slate-700 shadow-sm mb-8 flex items-center gap-4">
+            <button onclick="toggleAudioPlay(this)" class="w-10 h-10 rounded-xl bg-brand-600 text-white flex items-center justify-center shrink-0 hover:bg-brand-700">
+              <i data-lucide="play" class="w-5 h-5"></i>
+            </button>
+            <div class="flex-grow">
+              <div class="flex items-center justify-between text-xs text-slate-500 mb-1">
+                <span>আবৃত্তি শুনুন (নমুনা অডিও)</span>
+                <span>০১:২৪</span>
+              </div>
+              <div class="w-full bg-slate-100 dark:bg-slate-700 h-1.5 rounded-full overflow-hidden">
+                <div class="bg-brand-600 h-full w-1/3"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- COMMENTS SECTION -->
+          <section class="bg-white dark:bg-slate-800 rounded-3xl p-6 sm:p-8 border border-slate-100 dark:border-slate-700 shadow-sm">
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white font-serif-bn mb-6 flex items-center gap-2">
+              <i data-lucide="message-square" class="w-5 h-5 text-brand-600"></i> মন্তব্যসমূহ (${commentsList.length})
+            </h3>
+
+            <!-- Comment Input Form -->
+            <form onsubmit="postComment(event, '${poem.id}')" class="mb-8">
+              <textarea name="comment" rows="3" required placeholder="আপনার সুন্দর মন্তব্য এখানে লিখুন..." class="w-full p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-700/50 border border-slate-200 dark:border-slate-700 text-xs focus:outline-none focus:border-brand-500 dark:text-white mb-3"></textarea>
+              <button type="submit" class="px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white text-xs font-semibold transition-colors">
+                মন্তব্য প্রকাশ করুন
+              </button>
+            </form>
+
+            <!-- Comment List -->
+            <div class="space-y-4 divide-y divide-slate-100 dark:divide-slate-700">
+              ${commentsList.length === 0 ? `
+                <p class="text-xs text-slate-400 text-center py-4">প্রথম মন্তব্যকারী হিসেবে আপনার মতামত জানান!</p>
+              ` : commentsList.map(c => `
+                <div class="pt-4 first:pt-0">
+                  <div class="flex items-center justify-between mb-1">
+                    <span class="font-bold text-xs text-slate-800 dark:text-slate-200">${c.user}</span>
+                    <span class="text-[10px] text-slate-400">${c.date}</span>
+                  </div>
+                  <p class="text-xs text-slate-600 dark:text-slate-300 font-serif-bn">${c.text}</p>
+                </div>
+              `).join('')}
+            </div>
+          </section>
+        </div>
+      `;
+    }
+
+    let currentFontSize = 18;
+    function adjustFontSize(delta) {
+      currentFontSize = Math.max(14, Math.min(28, currentFontSize + delta));
+      const container = document.getElementById('poem-text-container');
+      if (container) container.style.fontSize = `${currentFontSize}px`;
+    }
+
+    function toggleAudioPlay(btn) {
+      showToast('অডিও আবৃত্তি সিমুলেশন চালু হয়েছে!');
+    }
+
+    function postComment(e, poemId) {
+      e.preventDefault();
+      const text = e.target.comment.value;
+      if (!AppState.comments[poemId]) AppState.comments[poemId] = [];
+      AppState.comments[poemId].unshift({
+        user: AppState.currentUser ? AppState.currentUser.name : 'বেনামী পাঠক',
+        text: text,
+        date: 'এখনই'
+      });
+      localStorage.setItem('kb_comments', JSON.stringify(AppState.comments));
+      showToast('মন্তব্য যুক্ত হয়েছে!');
+      renderPoemDetail(document.getElementById('app-container'), poemId);
+    }
+
+    /* 4. POETS LIST & PROFILE VIEWS */
+    function renderPoetsList(container) {
+      container.innerHTML = `
+        <div class="mb-8">
+          <h1 class="text-2xl font-bold text-slate-900 dark:text-white font-serif-bn">সম্মানিত কবিগণ</h1>
+          <p class="text-xs text-slate-500">আমাদের প্ল্যাটফর্মের সৃজনশীল কবিদের তালিকা</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          ${PoetsSeed.map(p => renderPoetCard(p)).join('')}
+        </div>
+      `;
+    }
+
+    function renderPoetProfile(container, id) {
+      const poet = PoetsSeed.find(p => p.id === id) || PoetsSeed[0];
+      const isFollowing = AppState.following.includes(poet.id);
+      const allPoems = getAllPoems();
+
+      container.innerHTML = `
+        <div class="max-w-4xl mx-auto">
+          <!-- Poet Header Profile Card -->
+          <div class="bg-white dark:bg-slate-800 rounded-3xl p-6 sm:p-8 border border-slate-100 dark:border-slate-700/60 shadow-sm mb-8 text-center sm:text-left sm:flex items-center gap-6">
+            <div class="w-24 h-24 rounded-full bg-brand-100 dark:bg-slate-700 text-brand-700 dark:text-brand-300 font-bold text-3xl flex items-center justify-center shrink-0 mx-auto sm:mx-0 mb-4 sm:mb-0">
+              ${poet.name.charAt(0)}
+            </div>
+            <div class="flex-grow">
+              <h1 class="text-2xl font-bold text-slate-900 dark:text-white font-serif-bn mb-1">${poet.name}</h1>
+              <p class="text-xs text-slate-400 mb-3"><i data-lucide="map-pin" class="w-3.5 h-3.5 inline mr-1"></i>${poet.loc}</p>
+              <p class="text-xs text-slate-600 dark:text-slate-300 font-serif-bn leading-relaxed mb-4">${poet.bio}</p>
+              <div class="flex flex-wrap items-center justify-center sm:justify-start gap-6 text-xs text-slate-500 border-t border-slate-100 dark:border-slate-700 pt-3">
+                <span><strong>${poet.works}</strong> টি কবিতা</span>
+                <span><strong>${poet.followers}</strong> অনুসারী</span>
+              </div>
+            </div>
+            <div class="mt-4 sm:mt-0 shrink-0">
+              <button onclick="toggleFollow('${poet.id}')" class="px-6 py-2.5 rounded-xl text-xs font-semibold ${isFollowing ? 'bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200' : 'bg-brand-600 text-white hover:bg-brand-700'} transition-colors">
+                ${isFollowing ? 'অনুসরণ করছেন' : 'ফলো করুন'}
+              </button>
+            </div>
+          </div>
+
+          <!-- Poet's Poems Listing -->
+          <h2 class="text-lg font-bold text-slate-900 dark:text-white font-serif-bn mb-4">কবির প্রকাশিত কবিতাসমূহ</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            ${allPoems.map(p => renderPoemCard(p)).join('')}
+          </div>
+        </div>
+      `;
+    }
+
+    /* 5. CATEGORIES VIEW */
+    function renderCategoriesView(container) {
+      container.innerHTML = `
+        <div class="mb-8">
+          <h1 class="text-2xl font-bold text-slate-900 dark:text-white font-serif-bn">সকল কাব্য বিভাগ</h1>
+          <p class="text-xs text-slate-500">আপনার পছন্দের বিভাগে কবিতা খুঁজুন</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          ${Categories.map(cat => `
+            <a href="#poems?cat=${cat.id}" class="p-6 rounded-3xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700/60 shadow-sm hover:shadow-md transition-all flex items-center gap-4 group">
+              <div class="w-14 h-14 rounded-2xl bg-brand-50 dark:bg-slate-700 text-brand-600 dark:text-brand-400 flex items-center justify-center group-hover:scale-110 transition-transform">
+                <i data-lucide="${cat.icon}" class="w-7 h-7"></i>
+              </div>
+              <div>
+                <h3 class="text-base font-bold text-slate-900 dark:text-white font-serif-bn mb-1">${cat.name}</h3>
+                <span class="text-xs text-slate-400">কবিতা দেখতে ক্লিক করুন →</span>
+              </div>
+            </a>
+          `).join('')}
+        </div>
+      `;
+    }
+
+    /* 6. SEARCH VIEW */
+    function renderSearchView(container) {
+      const allPoems = getAllPoems();
+      container.innerHTML = `
+        <div class="max-w-2xl mx-auto mb-10">
+          <h1 class="text-2xl font-bold text-slate-900 dark:text-white font-serif-bn text-center mb-6">কবিতা ও কবি খুঁজুন</h1>
+          <div class="relative">
+            <input type="text" id="search-input" oninput="executeSearch(this.value)" placeholder="কবিতার শিরোনাম বা কবির নাম লিখুন..." class="w-full pl-11 pr-4 py-3.5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm shadow-sm focus:outline-none focus:border-brand-500 dark:text-white">
+            <i data-lucide="search" class="w-5 h-5 text-slate-400 absolute left-4 top-4"></i>
+          </div>
+        </div>
+
+        <div id="search-results-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          ${allPoems.map(p => renderPoemCard(p)).join('')}
+        </div>
+      `;
+    }
+
+    function executeSearch(query) {
+      const allPoems = getAllPoems();
+      const q = query.trim().toLowerCase();
+      const filtered = allPoems.filter(p => p.title.toLowerCase().includes(q) || p.poet.toLowerCase().includes(q));
+      const grid = document.getElementById('search-results-grid');
+      grid.innerHTML = filtered.length > 0 
+        ? filtered.map(p => renderPoemCard(p)).join('')
+        : `<div class="col-span-full py-12 text-center text-slate-400 text-sm">কোনো কবিতা বা কবি পাওয়া যায়নি।</div>`;
+      lucide.createIcons();
+    }
+
+    /* 7. BOOKMARKS VIEW */
+    function renderBookmarksView(container) {
+      const allPoems = getAllPoems();
+      const saved = allPoems.filter(p => AppState.bookmarks.includes(p.id));
+
+      container.innerHTML = `
+        <div class="mb-8">
+          <h1 class="text-2xl font-bold text-slate-900 dark:text-white font-serif-bn">আমার সংরক্ষিত কবিতা</h1>
+          <p class="text-xs text-slate-500">আপনার পছন্দের কবিতার ব্যক্তিগত সংগ্রহ</p>
+        </div>
+        ${saved.length === 0 ? `
+          <div class="py-16 text-center bg-white dark:bg-slate-800 rounded-3xl border border-slate-100 dark:border-slate-700">
+            <i data-lucide="bookmark" class="w-12 h-12 text-slate-300 mx-auto mb-3"></i>
+            <p class="text-sm font-semibold text-slate-600 dark:text-slate-300">এখনো কোনো কবিতা সংগ্রহে যোগ করা হয়নি।</p>
+            <p class="text-xs text-slate-400 mt-1">কবিতা পড়ার সময় বুকমার্ক আইকনে ক্লিক করে সংরক্ষণ করুন।</p>
+          </div>
+        ` : `
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            ${saved.map(p => renderPoemCard(p)).join('')}
+          </div>
+        `}
+      `;
+    }
+
+    /* 8. AUTH VIEWS (LOGIN / REGISTER) */
+    function renderLoginView(container) {
+      container.innerHTML = `
+        <div class="max-w-md mx-auto py-8">
+          <div class="bg-white dark:bg-slate-800 rounded-3xl p-8 border border-slate-100 dark:border-slate-700/60 shadow-xl">
+            <div class="text-center mb-8">
+              <div class="w-12 h-12 rounded-2xl bg-brand-600 text-white flex items-center justify-center mx-auto mb-3 shadow-md">
+                <i data-lucide="book-open" class="w-6 h-6"></i>
+              </div>
+              <h1 class="text-2xl font-bold text-slate-900 dark:text-white font-serif-bn">স্বাগতম কবিতা ভুবনে</h1>
+              <p class="text-xs text-slate-400 mt-1">আপনার অ্যাকাউন্টে লগইন করুন</p>
+            </div>
+
+            <form onsubmit="handleLogin(event)" class="space-y-4">
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">ইমেইল বা ইউজারনেম</label>
+                <input type="text" name="email" required placeholder="ইমেইল বা ইউজারনেম লিখুন" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-xs text-slate-900 dark:text-white focus:outline-none focus:border-brand-500">
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">পাসওয়ার্ড</label>
+                <input type="password" name="password" required placeholder="••••••••" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-xs text-slate-900 dark:text-white focus:outline-none focus:border-brand-500">
+              </div>
+              <button type="submit" class="w-full py-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold text-xs transition-colors shadow-md shadow-brand-600/20">
+                লগইন করুন
+              </button>
+            </form>
+
+            <div class="mt-6 text-center text-xs text-slate-500">
+              নতুন অ্যাকাউন্ট খুলতে চান? <a href="#register" class="text-brand-600 font-semibold hover:underline">নিবন্ধন করুন</a>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderRegisterView(container) {
+      container.innerHTML = `
+        <div class="max-w-md mx-auto py-8">
+          <div class="bg-white dark:bg-slate-800 rounded-3xl p-8 border border-slate-100 dark:border-slate-700/60 shadow-xl">
+            <div class="text-center mb-8">
+              <h1 class="text-2xl font-bold text-slate-900 dark:text-white font-serif-bn">নতুন অ্যাকাউন্ট তৈরি করুন</h1>
+              <p class="text-xs text-slate-400 mt-1">কবিতা ভুবনে কবি ও লেখক হিসেবে যুক্ত হোন</p>
+            </div>
+
+            <form onsubmit="handleRegister(event)" class="space-y-4">
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">পূর্ণ নাম</label>
+                <input type="text" name="fullname" required placeholder="আপনার নাম লিখুন" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-xs text-slate-900 dark:text-white focus:outline-none focus:border-brand-500">
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">ইমেইল ঠিকানা</label>
+                <input type="email" name="email" required placeholder="ইমেইল লিখুন" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-xs text-slate-900 dark:text-white focus:outline-none focus:border-brand-500">
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">পাসওয়ার্ড</label>
+                <input type="password" name="password" required placeholder="••••••••" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-xs text-slate-900 dark:text-white focus:outline-none focus:border-brand-500">
+              </div>
+              <button type="submit" class="w-full py-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold text-xs transition-colors shadow-md shadow-brand-600/20">
+                নিবন্ধন সম্পন্ন করুন
+              </button>
+            </form>
+
+            <div class="mt-6 text-center text-xs text-slate-500">
+              আগে থেকেই অ্যাকাউন্ট আছে? <a href="#login" class="text-brand-600 font-semibold hover:underline">লগইন করুন</a>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    /* 9. USER DASHBOARD / PROFILE VIEW */
+    function renderDashboardView(container) {
+      if (!AppState.currentUser) {
+        window.location.hash = '#login';
+        return;
+      }
+
+      container.innerHTML = `
+        <div class="max-w-4xl mx-auto">
+          <!-- Profile Card -->
+          <div class="bg-white dark:bg-slate-800 rounded-3xl p-6 sm:p-8 border border-slate-100 dark:border-slate-700/60 shadow-sm mb-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-4 text-center sm:text-left">
+              <div class="w-20 h-20 rounded-full bg-brand-600 text-white font-bold text-2xl flex items-center justify-center">
+                ${AppState.currentUser.name.charAt(0)}
+              </div>
+              <div>
+                <h1 class="text-xl font-bold text-slate-900 dark:text-white font-serif-bn">${AppState.currentUser.name}</h1>
+                <p class="text-xs text-slate-400 mt-0.5">${AppState.currentUser.email}</p>
+                <span class="inline-block mt-2 px-2.5 py-0.5 rounded-full bg-brand-50 dark:bg-slate-700 text-brand-700 dark:text-brand-300 text-[10px] font-semibold">
+                  সদস্য (২০২৬)
+                </span>
+              </div>
+            </div>
+            <button onclick="logout()" class="px-4 py-2 rounded-xl bg-rose-50 text-rose-600 dark:bg-rose-900/30 dark:text-rose-400 text-xs font-semibold hover:bg-rose-100 transition-colors">
+              লগআউট
+            </button>
+          </div>
+
+          <!-- Stats Grid -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
+            <div class="p-4 rounded-2xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 text-center">
+              <span class="block text-xl font-bold text-slate-900 dark:text-white">${AppState.publishedPoems.length}</span>
+              <span class="text-[11px] text-slate-400">প্রকাশিত কবিতা</span>
+            </div>
+            <div class="p-4 rounded-2xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 text-center">
+              <span class="block text-xl font-bold text-slate-900 dark:text-white">${AppState.drafts.length}</span>
+              <span class="text-[11px] text-slate-400">ড্রাফট কবিতা</span>
+            </div>
+            <div class="p-4 rounded-2xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 text-center">
+              <span class="block text-xl font-bold text-slate-900 dark:text-white">${AppState.bookmarks.length}</span>
+              <span class="text-[11px] text-slate-400">সংরক্ষিত কবিতা</span>
+            </div>
+            <div class="p-4 rounded-2xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 text-center">
+              <span class="block text-xl font-bold text-slate-900 dark:text-white">${AppState.following.length}</span>
+              <span class="text-[11px] text-slate-400">অনুসৃত কবি</span>
+            </div>
+          </div>
+
+          <!-- My Published Poems -->
+          <h2 class="text-lg font-bold text-slate-900 dark:text-white font-serif-bn mb-4">আমার কবিতাসমূহ</h2>
+          ${AppState.publishedPoems.length === 0 ? `
+            <div class="py-12 text-center bg-white dark:bg-slate-800 rounded-3xl border border-slate-100 dark:border-slate-700 text-xs text-slate-400">
+              আপনি এখনো কোনো কবিতা প্রকাশ করেননি।
+            </div>
+          ` : `
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              ${AppState.publishedPoems.map(p => renderPoemCard(p)).join('')}
+            </div>
+          `}
+        </div>
+      `;
+    }
+
+    /* 10. POEM SUBMISSION FORM VIEW */
+    function renderPoemSubmissionView(container) {
+      container.innerHTML = `
+        <div class="max-w-2xl mx-auto">
+          <div class="mb-8">
+            <h1 class="text-2xl font-bold text-slate-900 dark:text-white font-serif-bn">কবিতা প্রকাশ করুন</h1>
+            <p class="text-xs text-slate-500">আপনার সুন্দর সৃষ্টি কবিতা ভুবনের পাঠকদের সাথে শেয়ার করুন</p>
+          </div>
+
+          <form onsubmit="handlePoemSubmit(event)" class="bg-white dark:bg-slate-800 rounded-3xl p-6 sm:p-8 border border-slate-100 dark:border-slate-700/60 shadow-xl space-y-5">
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">কবিতার শিরোনাম</label>
+              <input type="text" name="title" required placeholder="কবিতার শিরোনাম লিখুন..." class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-xs text-slate-900 dark:text-white focus:outline-none focus:border-brand-500">
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">কাব্য বিভাগ</label>
+                <select name="category" required class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-xs text-slate-900 dark:text-white focus:outline-none focus:border-brand-500">
+                  ${Categories.map(c => `<option value="${c.id}">${c.name}</option>`).join('')}
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">কবির নাম</label>
+                <input type="text" name="poet" value="${AppState.currentUser ? AppState.currentUser.name : ''}" required placeholder="কবির নাম লিখুন..." class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-xs text-slate-900 dark:text-white focus:outline-none focus:border-brand-500">
+              </div>
+            </div>
+
+            <div>
+              <div class="flex items-center justify-between mb-1.5">
+                <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300">কবিতার পংক্তিমালা</label>
+                <span id="char-count" class="text-[10px] text-slate-400">০ অক্ষর</span>
+              </div>
+              <textarea name="text" rows="8" required oninput="updateCharCount(this)" placeholder="এখানে কবিতার লেখা লিখুন..." class="w-full p-4 rounded-xl bg-slate-50 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-xs text-slate-900 dark:text-white font-serif-bn leading-relaxed focus:outline-none focus:border-brand-500"></textarea>
+            </div>
+
+            <div class="flex items-center gap-3 pt-2">
+              <button type="submit" class="flex-grow py-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold text-xs transition-colors shadow-md shadow-brand-600/20">
+                প্রকাশ করুন
+              </button>
+              <button type="button" onclick="saveDraft(this.form)" class="px-5 py-3 rounded-xl bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 font-semibold text-xs hover:bg-slate-200 transition-colors">
+                ড্রাফট রাখুন
+              </button>
+            </div>
+          </form>
+        </div>
+      `;
+    }
+
+    function updateCharCount(textarea) {
+      document.getElementById('char-count').innerText = `${textarea.value.length} অক্ষর`;
+    }
+
+    function handlePoemSubmit(e) {
+      e.preventDefault();
+      const form = e.target;
+      const newPoem = {
+        id: 'user-p-' + Date.now(),
+        title: form.title.value,
+        poet: form.poet.value,
+        category: form.category.value,
+        date: '২০২৬-০৩-১৭',
+        views: 1,
+        likesCount: 0,
+        text: form.text.value
+      };
+      AppState.publishedPoems.unshift(newPoem);
+      localStorage.setItem('kb_custom_poems', JSON.stringify(AppState.publishedPoems));
+      showToast('কবিতা সফলভাবে প্রকাশিত হয়েছে!');
+      window.location.hash = '#poems';
+    }
+
+    function saveDraft(form) {
+      if (!form.title.value) {
+        showToast('ড্রাফটে রাখতে শিরোনাম পূরণ করুন।');
+        return;
+      }
+      AppState.drafts.push({ title: form.title.value, text: form.text.value });
+      localStorage.setItem('kb_drafts', JSON.stringify(AppState.drafts));
+      showToast('ড্রাফট হিসেবে সংরক্ষিত হয়েছে!');
+    }
+
+    /* 11. HTML CANVAS POETRY CARD GENERATOR VIEW */
+    function renderCardGeneratorView(container) {
+      container.innerHTML = `
+        <div class="max-w-4xl mx-auto">
+          <div class="mb-8 text-center sm:text-left">
+            <h1 class="text-2xl font-bold text-slate-900 dark:text-white font-serif-bn">কবিতা কার্ড মেকার</h1>
+            <p class="text-xs text-slate-500">সোশ্যাল মিডিয়ায় শেয়ারের জন্য সুন্দর কবিতা কার্ড তৈরি করুন</p>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            
+            <!-- Controls Panel -->
+            <div class="lg:col-span-5 bg-white dark:bg-slate-800 rounded-3xl p-6 border border-slate-100 dark:border-slate-700/60 shadow-sm space-y-4">
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">কবিতার পংক্তিমালা (সর্বোচ্চ ৪ লাইন)</label>
+                <textarea id="cg-text" rows="4" oninput="renderCanvasCard()" placeholder="এখানে কবিতার সংক্ষিপ্ত অংশ লিখুন..." class="w-full p-3 rounded-xl bg-slate-50 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-xs font-serif-bn dark:text-white">এখানে কবিতা কার্ডের লেখা প্রদর্শিত হবে।</textarea>
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">কবির নাম</label>
+                <input type="text" id="cg-author" oninput="renderCanvasCard()" value="কবির নাম" class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-xs dark:text-white">
+              </div>
+
+              <div class="grid grid-cols-2 gap-3">
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">ব্যাকগ্রাউন্ড রং</label>
+                  <input type="color" id="cg-bg" value="#059669" onchange="renderCanvasCard()" class="w-full h-9 rounded-xl cursor-pointer">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">টেক্সট রং</label>
+                  <input type="color" id="cg-color" value="#ffffff" onchange="renderCanvasCard()" class="w-full h-9 rounded-xl cursor-pointer">
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">ফন্ট সাইজ</label>
+                <input type="range" id="cg-size" min="20" max="42" value="28" oninput="renderCanvasCard()" class="w-full accent-brand-600">
+              </div>
+
+              <button onclick="downloadCanvasCard()" class="w-full py-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold text-xs transition-colors flex items-center justify-center gap-2 shadow-md shadow-brand-600/20">
+                <i data-lucide="download" class="w-4 h-4"></i> ইমেজ ডাউনলোড করুন
+              </button>
+            </div>
+
+            <!-- Live Canvas Preview -->
+            <div class="lg:col-span-7 flex flex-col items-center">
+              <div class="bg-white dark:bg-slate-800 p-4 rounded-3xl border border-slate-100 dark:border-slate-700/60 shadow-xl max-w-full">
+                <canvas id="card-canvas" width="600" height="600" class="rounded-2xl max-w-full h-auto shadow-inner"></canvas>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      `;
+      setTimeout(renderCanvasCard, 100);
+    }
+
+    function renderCanvasCard() {
+      const canvas = document.getElementById('card-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+
+      const text = document.getElementById('cg-text').value || 'এখানে লেখা প্রদর্শিত হবে।';
+      const author = document.getElementById('cg-author').value || 'কবির নাম';
+      const bgColor = document.getElementById('cg-bg').value;
+      const textColor = document.getElementById('cg-color').value;
+      const fontSize = document.getElementById('cg-size').value;
+
+      // Draw Background
+      ctx.fillStyle = bgColor;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      // Draw Decorative Border
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.2)';
+      ctx.lineWidth = 12;
+      ctx.strokeRect(20, 20, canvas.width - 40, canvas.height - 40);
+
+      // Render Poem Text lines
+      ctx.fillStyle = textColor;
+      ctx.textAlign = 'center';
+      ctx.font = `600 ${fontSize}px "Hind Siliguri", sans-serif`;
+
+      const lines = text.split('\n');
+      const startY = (canvas.height / 2) - (lines.length * fontSize * 0.7);
+      
+      lines.forEach((line, index) => {
+        ctx.fillText(line, canvas.width / 2, startY + (index * fontSize * 1.5));
+      });
+
+      // Render Author Name
+      ctx.font = `400 ${Math.max(16, fontSize - 8)}px "Hind Siliguri", sans-serif`;
+      ctx.fillText(`— ${author}`, canvas.width / 2, startY + (lines.length * fontSize * 1.5) + 30);
+
+      // Brand Watermark Footer
+      ctx.font = `500 14px "Hind Siliguri", sans-serif`;
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.6)';
+      ctx.fillText('কবিতা ভুবন', canvas.width / 2, canvas.height - 45);
+    }
+
+    function downloadCanvasCard() {
+      const canvas = document.getElementById('card-canvas');
+      const link = document.createElement('a');
+      link.download = 'kobitar-bhubon-card.png';
+      link.href = canvas.toDataURL();
+      link.click();
+      showToast('কার্ড ইমেজ ডাউনলোড সম্পূর্ণ হয়েছে!');
+    }
+
+    /* 12. ADMIN PANEL VIEW */
+    function renderAdminView(container) {
+      const allPoems = getAllPoems();
+      container.innerHTML = `
+        <div class="max-w-5xl mx-auto">
+          <div class="mb-8 flex items-center justify-between">
+            <div>
+              <h1 class="text-2xl font-bold text-slate-900 dark:text-white font-serif-bn">এডমিন প্যানেল</h1>
+              <p class="text-xs text-slate-500">প্ল্যাটফর্মের কন্ট্রোল সেন্টার ও মডারেশন ডেশবোর্ড</p>
+            </div>
+            <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-semibold">সক্রিয়</span>
+          </div>
+
+          <!-- Overview Stats -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+            <div class="p-5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 shadow-sm">
+              <span class="text-xs text-slate-400">মোট কবিতা</span>
+              <p class="text-2xl font-bold text-slate-900 dark:text-white mt-1">${allPoems.length}</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 shadow-sm">
+              <span class="text-xs text-slate-400">মোট কবি ও ব্যবহারকারী</span>
+              <p class="text-2xl font-bold text-slate-900 dark:text-white mt-1">${PoetsSeed.length + 1}</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 shadow-sm">
+              <span class="text-xs text-slate-400">মডারেশন রিপোর্ট</span>
+              <p class="text-2xl font-bold text-emerald-600 mt-1">০</p>
+            </div>
+          </div>
+
+          <!-- Poems Moderation Table -->
+          <div class="bg-white dark:bg-slate-800 rounded-3xl border border-slate-100 dark:border-slate-700/60 shadow-sm overflow-hidden">
+            <div class="px-6 py-4 border-b border-slate-100 dark:border-slate-700">
+              <h2 class="font-bold text-slate-900 dark:text-white text-sm">প্রকাশিত কবিতার তালিকা</h2>
+            </div>
+            <div class="overflow-x-auto">
+              <table class="w-full text-left text-xs text-slate-600 dark:text-slate-300">
+                <thead class="bg-slate-50 dark:bg-slate-700/50 uppercase text-[10px] text-slate-400">
+                  <tr>
+                    <th class="px-6 py-3">শিরোনাম</th>
+                    <th class="px-6 py-3">কবি</th>
+                    <th class="px-6 py-3">বিভাগ</th>
+                    <th class="px-6 py-3">তারিখ</th>
+                    <th class="px-6 py-3 text-right">অ্যাকশন</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100 dark:divide-slate-700">
+                  ${allPoems.map(p => `
+                    <tr>
+                      <td class="px-6 py-3.5 font-semibold text-slate-900 dark:text-white font-serif-bn">${p.title}</td>
+                      <td class="px-6 py-3.5">${p.poet}</td>
+                      <td class="px-6 py-3.5">${p.category}</td>
+                      <td class="px-6 py-3.5">${p.date}</td>
+                      <td class="px-6 py-3.5 text-right">
+                        <button onclick="showToast('কবিতাটি অনুমোদিত রাখা হয়েছে।')" class="text-brand-600 font-medium hover:underline mr-2">অনুমোদন</button>
+                        <button onclick="showToast('আইটেমটি মডারেশন ফ্ল্যাগ করা হয়েছে।')" class="text-rose-500 font-medium hover:underline">মুছুন</button>
+                      </td>
+                    </tr>
+                  `).join('')}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    /* 13. SETTINGS VIEW */
+    function renderSettingsView(container) {
+      container.innerHTML = `
+        <div class="max-w-2xl mx-auto bg-white dark:bg-slate-800 rounded-3xl p-6 sm:p-8 border border-slate-100 dark:border-slate-700/60 shadow-sm space-y-6">
+          <h1 class="text-2xl font-bold text-slate-900 dark:text-white font-serif-bn">অ্যাপ সেটিংস</h1>
+          
+          <div class="space-y-4 divide-y divide-slate-100 dark:divide-slate-700 text-xs">
+            <div class="pt-4 first:pt-0 flex items-center justify-between">
+              <div>
+                <h3 class="font-bold text-slate-800 dark:text-slate-200">বিজ্ঞপ্তি নোটিফিকেশন</h3>
+                <p class="text-slate-400">নতুন মন্তব্য ও লাইকের নোটিফিকেশন পান</p>
+              </div>
+              <input type="checkbox" checked class="accent-brand-600 w-4 h-4">
+            </div>
+            
+            <div class="pt-4 flex items-center justify-between">
+              <div>
+                <h3 class="font-bold text-slate-800 dark:text-slate-200">প্রোফাইল গোপনীয়তা</h3>
+                <p class="text-slate-400">সংগৃহীত কবিতা অন্য পাঠকদের জন্য দৃশ্যমান রাখুন</p>
+              </div>
+              <input type="checkbox" checked class="accent-brand-600 w-4 h-4">
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    /* 14. ABOUT VIEW */
+    function renderAboutView(container) {
+      container.innerHTML = `
+        <div class="max-w-3xl mx-auto bg-white dark:bg-slate-800 rounded-3xl p-8 border border-slate-100 dark:border-slate-700/60 shadow-sm text-center">
+          <h1 class="text-3xl font-extrabold text-slate-900 dark:text-white font-serif-bn mb-4">আমাদের সম্পর্কে</h1>
+          <p class="text-sm text-slate-600 dark:text-slate-300 font-serif-bn leading-relaxed mb-6">
+            “কবিতা ভুবন” হলো বাংলা ভাষাভাষী সাহিত্যপ্রেমী ও কবিদের জন্য একটি আধুনিক, নন্দনকানন তুল্য ডিজিটাল প্রকাশনা ও পাঠাগার প্ল্যাটফর্ম। এখানে প্রথিতযশা কবি থেকে শুরু করে উদীয়মান তরুণ লেখকরা তাদের সৃজনশীল সাহিত্যকর্ম প্রকাশ করতে পারেন।
+          </p>
+          <div class="border-t border-slate-100 dark:border-slate-700 pt-6 text-xs text-slate-500">
+            <p><strong>প্রতিষ্ঠাতা ও ডেভেলপার:</strong> MOJNU MIAH</p>
+            <p class="mt-1">ইমেইল: mojnumiah782@gmail.com | ফোন: 01307830655</p>
+          </div>
+        </div>
+      `;
+    }
+
+    /* 15. CONTACT VIEW */
+    function renderContactView(container) {
+      container.innerHTML = `
+        <div class="max-w-md mx-auto bg-white dark:bg-slate-800 rounded-3xl p-8 border border-slate-100 dark:border-slate-700/60 shadow-xl">
+          <h1 class="text-2xl font-bold text-slate-900 dark:text-white font-serif-bn mb-2 text-center">যোগাযোগ করুন</h1>
+          <p class="text-xs text-slate-400 text-center mb-6">আপনার যেকোনো মতামত বা প্রশ্ন আমাদের পাঠান</p>
+
+          <form onsubmit="handleContactSubmit(event)" class="space-y-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">আপনার নাম</label>
+              <input type="text" required placeholder="নাম লিখুন" class="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-xs dark:text-white">
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">ইমেইল</label>
+              <input type="email" required placeholder="ইমেইল লিখুন" class="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-xs dark:text-white">
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">বার্তা</label>
+              <textarea rows="4" required placeholder="আপনার মেসেজ..." class="w-full p-3 rounded-xl bg-slate-50 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-xs dark:text-white"></textarea>
+            </div>
+            <button type="submit" class="w-full py-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold text-xs transition-colors">
+              মেসেজ পাঠান
+            </button>
+          </form>
+        </div>
+      `;
+    }
+
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      showToast('আপনার মেসেজ সফলভাবে পাঠানো হয়েছে!');
+      e.target.reset();
+    }
+  </script>
+</body>
+</html>
